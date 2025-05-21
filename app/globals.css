@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-black {
+    background-color: #000;
+  }
+}
+
+
