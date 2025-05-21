@@ -1,18 +1,23 @@
 import { NextResponse } from 'next/server';
 // import { dummyProducts } from '../route';
 import { dummyProducts } from '@/constants';
+interface RouteParams {
+  params: Promise<Record<string, string>>;
+}
+export async function GET(_: Request, { params }: RouteParams ) {
+  const { id: paramsId } = await params;
 
-export async function GET(_: Request, { params }: { params: { id: string } }) {
-  const product = dummyProducts.find((p) => p.id === params.id);
+  const product = dummyProducts.find((p) => p.id === paramsId);
   if (!product) {
     return NextResponse.json({ message: 'Product not found' }, { status: 404 });
   }
   return NextResponse.json(product);
 }
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(req: Request, { params }: RouteParams ) {
+  const { id: paramsId } = await params;
   const updatedProduct = await req.json();
-  const index = dummyProducts.findIndex((p) => p.id === params.id);
+  const index = dummyProducts.findIndex((p) => p.id === paramsId);
   if (index === -1) {
     return NextResponse.json({ message: 'Product not found' }, { status: 404 });
   }
@@ -20,8 +25,9 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
   return NextResponse.json({ message: 'Product updated', product: dummyProducts[index] });
 }
 
-export async function DELETE(_: Request, { params }: { params: { id: string } }) {
-  const index = dummyProducts.findIndex((p) => p.id === params.id);
+export async function DELETE(_: Request, { params }: RouteParams ) {
+  const { id: paramsId } = await params;
+  const index = dummyProducts.findIndex((p) => p.id === paramsId);
   if (index === -1) {
     return NextResponse.json({ message: 'Product not found' }, { status: 404 });
   }

@@ -48,14 +48,14 @@ const ProductForm: React.FC<ProductFormProps> = ({ edit = false, product, onSubm
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="space-y-4 max-w-md mx-auto text-black">
       <input
         type="text"
         name="name"
         placeholder="Product Name"
         value={form.name}
         onChange={handleChange}
-        className="w-full px-4 py-2 border rounded bg-gray-900"
+        className="w-full px-4 py-2 border rounded bg-gray-100"
         required
       />
       <input
@@ -64,7 +64,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ edit = false, product, onSubm
         placeholder="Category"
         value={form.category}
         onChange={handleChange}
-        className="w-full px-4 py-2 border rounded bg-gray-900"
+        className="w-full px-4 py-2 border rounded bg-gray-100"
         required
       />
       <input
@@ -73,7 +73,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ edit = false, product, onSubm
         placeholder="Quantity"
         value={form.quantity}
         onChange={handleChange}
-        className="w-full px-4 py-2 border rounded bg-gray-900"
+        className="w-full px-4 py-2 border rounded bg-gray-100"
         min={1}
         required
       />
@@ -83,7 +83,7 @@ const ProductForm: React.FC<ProductFormProps> = ({ edit = false, product, onSubm
         placeholder="Unit"
         value={form.unit}
         onChange={handleChange}
-        className="w-full px-4 py-2 border rounded bg-gray-900"
+        className="w-full px-4 py-2 border rounded bg-gray-100"
         required
       />
       <button type="submit" className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
