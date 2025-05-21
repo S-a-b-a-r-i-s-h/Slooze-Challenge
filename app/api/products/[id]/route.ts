@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { dummyProducts } from '../route';
+// import { dummyProducts } from '../route';
+import { dummyProducts } from '@/constants';
 
 export async function GET(_: Request, { params }: { params: { id: string } }) {
   const product = dummyProducts.find((p) => p.id === params.id);
